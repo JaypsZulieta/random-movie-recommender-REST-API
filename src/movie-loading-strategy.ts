@@ -10,6 +10,7 @@ type MovieData = {
   title: string;
   overview: string;
   release_date: string;
+  original_language: string;
   backdrop_path: string;
   poster_path: string;
 };
@@ -32,6 +33,7 @@ export class TheMovieDatabaseLoadingStrategy implements MovieLoadingStrategy {
         .title(data.title)
         .overview(data.overview)
         .releaseDate(new Date(data.release_date))
+        .orginalLanguage(data.original_language)
         .backDropURL(data.backdrop_path)
         .posterURL(data.poster_path)
         .build()

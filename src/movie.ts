@@ -4,6 +4,7 @@ class Movie {
     readonly title: string,
     readonly overview: string,
     readonly releaseDate: Date,
+    readonly originalLanguage: string,
     readonly backDropURL: string | null,
     readonly posterURL: string | null
   ) {
@@ -17,6 +18,7 @@ class MovieBuilder {
   private titleToSet = "John Smith - The Movie";
   private overviewToSet = "The life story of the legendary John Smith.";
   private releaseDateToSet = new Date("2003-12-20");
+  private originalLanguageToSet = "en";
   private backDropURLToSet: string | null = null;
   private posterURLToSet: string | null = null;
 
@@ -40,6 +42,11 @@ class MovieBuilder {
     return this;
   }
 
+  orginalLanguage(orginalLanguage: string): MovieBuilder {
+    this.originalLanguageToSet = orginalLanguage;
+    return this;
+  }
+
   backDropURL(backDropURL: string | null): MovieBuilder {
     this.backDropURLToSet = backDropURL;
     return this;
@@ -56,6 +63,7 @@ class MovieBuilder {
       this.titleToSet,
       this.overviewToSet,
       this.releaseDateToSet,
+      this.originalLanguageToSet,
       this.backDropURLToSet,
       this.posterURLToSet
     );
