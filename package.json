@@ -2,7 +2,8 @@
   "name": ".",
   "scripts": {
     "dev": "wrangler dev src/index.ts",
-    "deploy": "wrangler deploy --minify src/index.ts"
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "test": "jest"
   },
   "dependencies": {
     "hono": "^4.4.11"
