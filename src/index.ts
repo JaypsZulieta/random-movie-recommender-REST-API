@@ -1,9 +1,24 @@
-import { Hono } from "hono";
+import { Context, Hono } from "hono";
+import { RandomMovieRecommender } from "./movie-recommender";
+import { TheMovieDatabaseLoadingStrategy } from "./movie-loading-strategy";
 
-const app = new Hono();
+type Bindings = {
+  API_KEY: string;
+};
 
-app.get("/", (c) => {
-  return c.json({ message: "Hello, World!" });
+const app = new Hono<{ Bindings: Bindings }>();
+
+app.get("/", (context: Context) => {
+  return context.text(
+    'This is the Random Movie Recommender application by Jaypee Zulieta.\nPlease go to "\\recommendation" to view the recommended movie.'
+  );
+});
+
+app.get("/recommendation", async (context: Context) => {
+  const apiKey = context.env.API_KEY;
+  const movieLoadingStrategy = new TheMovieDatabaseLoadingStrategy(apiKey);
+  const movieRecommender = new RandomMovieRecommender(movieLoadingStrategy);
+  return context.json(await movieRecommender.recommend());
 });
 
 export default app;
