@@ -5,7 +5,7 @@ export interface MovieLoadingStrategy {
   load(): Promise<Movie[]>;
 }
 
-type MovieData = {
+export type MovieData = {
   id: number;
   title: string;
   overview: string;
@@ -15,7 +15,7 @@ type MovieData = {
   poster_path: string | null;
 };
 
-type PaginatedMovieData = {
+export type PaginatedMovieData = {
   results: MovieData[];
   total_pages: number;
 };
