@@ -10,7 +10,7 @@ const app = new Hono<{ Bindings: Bindings }>();
 
 app.get("/", (context: Context) => {
   return context.text(
-    'This is the Random Movie Recommender REST API by Jaypee Zulieta.\nPlease go to "/recommendation" to view the recommended movie.'
+    'This is the Random Movie Recommender REST API by Jaypee Zulieta.\nPlease go to "https://movie-recommender.jaypee-zulieta.workers.dev/recommendation" to view the recommended movie.'
   );
 });
 
