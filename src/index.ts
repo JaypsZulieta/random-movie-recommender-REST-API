@@ -1,12 +1,25 @@
 import { Context, Hono } from "hono";
 import { RandomMovieRecommender } from "./movie-recommender";
 import { TheMovieDatabaseLoadingStrategy } from "./movie-loading-strategy";
+import { cors } from "hono/cors";
 
 type Bindings = {
   API_KEY: string;
 };
 
 const app = new Hono<{ Bindings: Bindings }>();
+
+app.use(
+  "/*",
+  cors({
+    origin: "*",
+    allowHeaders: ["X-Custom-Header", "Upgrade-Insecure-Requests"],
+    allowMethods: ["GET"],
+    exposeHeaders: ["Content-Length", "X-Kuma-Revision"],
+    maxAge: 600,
+    credentials: true,
+  })
+);
 
 app.get("/", (context: Context) => {
   return context.text(
