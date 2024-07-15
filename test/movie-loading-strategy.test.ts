@@ -37,7 +37,7 @@ describe("TheMovieDatabaseLoadingStrategy", () => {
       {
         id: 3,
         title: "Spider Man 3",
-        overview: "Spiderman meets Venom",
+        overview: "Spider-man meets Venom",
         release_date: "2007-05-04",
         original_language: "en",
         poster_path: null,
@@ -58,7 +58,7 @@ describe("TheMovieDatabaseLoadingStrategy", () => {
         .title(data.title)
         .overview(data.overview)
         .releaseDate(new Date(data.release_date))
-        .orginalLanguage(data.original_language)
+        .originalLanguage(data.original_language)
         .backDropURL(data.backdrop_path)
         .posterURL(data.poster_path)
         .build()

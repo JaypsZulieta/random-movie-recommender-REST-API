@@ -42,8 +42,8 @@ class MovieBuilder {
     return this;
   }
 
-  orginalLanguage(orginalLanguage: string): MovieBuilder {
-    this.originalLanguageToSet = orginalLanguage;
+  originalLanguage(originalLanguage: string): MovieBuilder {
+    this.originalLanguageToSet = originalLanguage;
     return this;
   }
 
